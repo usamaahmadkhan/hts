@@ -1,0 +1,19 @@
+---
+credentials:
+   username: "ubuntu"
+   password: "passw0rd"
+
+arguments:
+   name: "test2"
+   memory: "4096"
+   vcpus: "4"
+   disk: "path=/usr/local/ubuntu-16.10-server-cloudimg-amd64.img,bus=virtio,perms=rw"
+   channel: "unix,target_type=virtio,name='org.qemu.guest_agent.0'"
+   graphics: "none"
+   serial: "none"
+
+extra_arguments:
+   - noautoconsole
+   - accelerate
+   - debug
+...

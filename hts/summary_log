@@ -1,0 +1,19 @@
+TestID		TestName		Summary
+1		VirtioTest01_start_vm		Launch guest
+2		VirtioTest02_reboot_vm		Boot, reboot/poweroff guest multiple times
+3		VirtioTest03_run_iozone		Test VirtIO based disk interface using dd
+4		VirtioTest04_check_cpu_mem		Launch guest with VirtIO based filesystem with different vCPU(s) and memory sizes
+5		VirtioTest05_on_off_cpu		Launch guest with multiple vCPU(s) and plug/unplug one CPU multiple times
+6		VirtioTest06_reset_all_cpu		Launch guest with multiple vCPU(s) and plug/unplug all CPU(s) multiple times
+7		VirtioTest07_run_dd_cmd		Run dd command with different block size
+8		VirtioTest08_run_ltp_tests		Run LTP tests on guest
+9		VirtioTest09_run_gdb		Run GDB test on guest
+10		VirtioTest10_run_kbuild		Build kernel on guest
+11		VirtioTest11_multiple_vm_creation		Launch multiple guests
+12		PerfTest01_fio_read		Capture virtual disk raw read/write performance
+13		PerfTest01_fio_write		Capture virtual disk raw read/write performance
+14		PerfTest01_fio_randread		Capture virtual disk raw read/write performance
+15		PerfTest01_fio_randwrite		Capture virtual disk raw read/write performance
+16		PerfTest05_network_latency		Measure network latency with loop-back and VirtIO-net interfaces
+17		StressngTest01		Run every stress-ng tests
+18		StressngTest02		Run stress-ng tests in parallel

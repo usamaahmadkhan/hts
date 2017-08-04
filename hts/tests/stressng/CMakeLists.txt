@@ -1,0 +1,2 @@
+Virtio_add_test(NAME StressngTest01 WORKING_DIRECTORY ${TEST_INFRA_LOC}/stressng TIMEOUT 600 COMMAND  "python  test_kvm_stressng.py  --test_pattern=StressngTest01 --conf conf.yaml --num_vcpus=4 --memory=8192")
+Virtio_add_test(NAME StressngTest02 WORKING_DIRECTORY ${TEST_INFRA_LOC}/stressng TIMEOUT 600 COMMAND  "python  test_kvm_stressng.py  --test_pattern=StressngTest02 --conf conf.yaml --num_vcpus=4 --memory=8192")

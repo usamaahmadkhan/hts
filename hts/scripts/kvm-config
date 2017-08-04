@@ -1,0 +1,5 @@
+qemu_url="http://download.qemu-project.org"
+qemu_version="qemu-2.8.1.tar.xz"
+qemu_dir="/opt/hts/qemu-src"
+qemu_dependencies=('git' 'libglib2.0-dev' 'libfdt-dev' 'libpixman-1-dev' 'zlib1g-dev')
+pip_dependencies=('xlrd' 'unicodecsv' 'pyyaml')

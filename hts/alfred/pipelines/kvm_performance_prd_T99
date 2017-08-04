@@ -1,0 +1,33 @@
+job {
+    // Name of the pipeline to be created
+    name = "kvm-performance-periodic-thunderX_T99"
+
+    // Type of pipeline periodic, on-demand and per-commit
+    pipeline_type = "periodic"
+
+    // Name of Workload
+    workload = "kvm"
+
+    // Repos to be cloned for the pipeline
+    clone_repos = "hts"
+
+    // Cron value for periodic pipeline  to be triggered (only needed for periodic
+    // pipelines) Possible options (@daily, @weekly, @monthly and cron format
+    schedule = "@daily"
+
+    // Agents to be assigned to the pipeline
+    label = "kvm_agents_T99"
+
+    // Scripts to be run in different stages
+    stage1_PreCleanup = "./scripts/alfred_cleanup.sh"
+    stage2_Bootstrap = "./build_hts.sh"
+    stage3_Buildkvm = "./build/scripts/build_kvm.sh"
+    stage4_RunTests = "bash ./build/scripts/run_test_periodic.sh fio"
+    stage5_TestCleanup = "./build/scripts/test_cleanup.sh"
+
+    // Alert build status of each job on specified email address
+    email = "ahsanr@xgrid.co"
+
+    // Common logs aggregation location for the job
+    artifacts = "logs/"
+}

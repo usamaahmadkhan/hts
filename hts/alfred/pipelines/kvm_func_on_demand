@@ -1,0 +1,32 @@
+job {
+    // Name of the pipeline to be created
+    name = "kvm-functional-ondemand-thunderX"
+
+    // Type of pipeline periodic, on-demand and per-commit
+    pipeline_type = "on-demand"
+
+    // On-demand parameters
+    ondemand_variables = "TEST_NAME=all;QEMU_VERSION=qemu-2.8.1"
+
+    // Name of Workload
+    workload = "kvm"
+
+    // Repos to be cloned for the pipeline
+    clone_repos = "hts"
+
+    // Alfred agents to be assigned to the pipeline
+    label = "kvm_agents"
+
+    // Scripts to be run in different stages
+    stage1_PreCleanup = "./scripts/alfred_cleanup.sh"
+    stage2_Bootstrap = "./build_hts.sh"
+    stage3_Buildkvm = "./build/scripts/build_kvm.sh"
+    stage4_RunTests = "bash ./build/scripts/run_test_on_demand.sh"
+    stage5_TestCleanup = "./build/scripts/test_cleanup.sh"
+
+    // Alert build status of each job on specified email address
+    email = "ahsanr@xgrid.co"
+
+    // Common logs aggregation location for the job
+    artifacts = "logs/"
+}
