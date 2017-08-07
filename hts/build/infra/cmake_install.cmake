@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/infra
+# Install script for directory: /root/hts/hts/infra
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

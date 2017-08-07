@@ -18,11 +18,11 @@ log "Host architecture is $arch"
 log "Insatalling QEMU dependencies"
 tryexec sudo zypper install -y git
 tryexec sudo zypper install -y zlib-devel
-tryexec sudo zypper install -y libpixman-1-0-devel
-tryexec sudo zypper install -y libfdt-devel
-tryexec sudo zypper install -y libverto-glib-devel
-tryexec sudo zypper install -y libgmpxx4
-tryexec sudo zypper install -y libgnutlsxx-devel
+tryexec sudo zypper install -y libpixman-1-0
+tryexec sudo zypper install -y libfdt1
+tryexec sudo zypper install -y libvirt-glib-1_0-0
+tryexec sudo zypper install -y libgmp10 libgmm++-devel
+tryexec sudo zypper install -y libgnutls28
 
 #Installing/configuring QEMU
 log "Installing/configuring QEMU"

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /root/hts/build/scripts/bash_helpers.sh
-source /root/hts/build/scripts/log_helpers.sh
-source /root/hts/scripts/ltp_config
+source /root/hts/hts/build/scripts/bash_helpers.sh
+source /root/hts/hts/build/scripts/log_helpers.sh
+source /root/hts/hts/scripts/ltp_config
 
 # Export language settings
 tryexec export LANG=C
@@ -43,4 +43,4 @@ tryexec popd &> /dev/null
 
 #Run LTP Network setup
 log "Configuring LTP Network Environment"
-tryexec sudo bash /root/hts/scripts/setup_env_centos.sh
+tryexec sudo bash /root/hts/hts/scripts/setup_env_centos.sh

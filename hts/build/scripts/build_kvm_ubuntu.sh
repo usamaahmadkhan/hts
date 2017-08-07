@@ -5,9 +5,9 @@
 #usage:
 # bash build_kvm.sh
 
-. /root/hts/build/scripts/bash_helpers.sh
-. /root/hts/build/scripts/log_helpers.sh
-. /root/hts/build/scripts/kvm-config
+. /root/hts/hts/build/scripts/bash_helpers.sh
+. /root/hts/hts/build/scripts/log_helpers.sh
+. /root/hts/hts/build/scripts/kvm-config
 
 tryexec sudo chown -R $USER:$USER /opt/*
 MAKE_JOBS=$(getconf _NPROCESSORS_ONLN)
@@ -87,7 +87,7 @@ done
 
 #Configuring guest for qemu-guest-agent
 log "Configuring qemu-guest-agent on host machine"
-tryexec sudo bash /root/hts/build/scripts/conf_qemu_agent.sh
+tryexec sudo bash /root/hts/hts/build/scripts/conf_qemu_agent.sh
 
 #Installing some helper packages for arm arch
 if [ "$arch" == "aarch64" ];then
@@ -112,4 +112,4 @@ sysctl -w net.ipv4.ip_forward=1
 
 #Installing LTP on host
 log "Installing ltp on host"
-bash /root/hts/build/scripts/install_ltp.sh
+bash /root/hts/hts/build/scripts/install_ltp.sh

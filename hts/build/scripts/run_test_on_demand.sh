@@ -1,7 +1,7 @@
 #!/bin bash
 #This script will run test cases for kvm-functional-periodic-x86 pipeline.
-. /root/hts/build/scripts/log_helpers.sh
-path=/root/hts/build
+. /root/hts/hts/build/scripts/log_helpers.sh
+path=/root/hts/hts/build
 pushd $path &> /dev/null
 log "Listing all tests"
 ctest -N

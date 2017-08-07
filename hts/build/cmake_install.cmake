@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts
+# Install script for directory: /root/hts/hts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/hts/build/scripts/cmake_install.cmake")
-  include("/root/hts/build/tests/cmake_install.cmake")
-  include("/root/hts/build/infra/cmake_install.cmake")
+  include("/root/hts/hts/build/scripts/cmake_install.cmake")
+  include("/root/hts/hts/build/tests/cmake_install.cmake")
+  include("/root/hts/hts/build/infra/cmake_install.cmake")
 
 endif()
 
@@ -48,5 +48,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/hts/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/hts/hts/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/scripts
+# Install script for directory: /root/hts/hts/scripts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

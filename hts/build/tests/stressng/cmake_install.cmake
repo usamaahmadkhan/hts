@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/tests/stressng
+# Install script for directory: /root/hts/hts/tests/stressng
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

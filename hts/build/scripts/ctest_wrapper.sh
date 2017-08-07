@@ -1,8 +1,8 @@
 #!/bin/bash
 
-. /root/hts/build/scripts/bash_helpers.sh
-. /root/hts/build/scripts/log_helpers.sh
-path=/root/hts/build/scripts
+. /root/hts/hts/build/scripts/bash_helpers.sh
+. /root/hts/hts/build/scripts/log_helpers.sh
+path=/root/hts/hts/build/scripts
 
 function cleanup () {
 arch=$(uname -m)

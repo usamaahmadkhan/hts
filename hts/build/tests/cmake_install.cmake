@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/tests
+# Install script for directory: /root/hts/hts/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/hts/build/tests/virtio/cmake_install.cmake")
-  include("/root/hts/build/tests/performance/cmake_install.cmake")
-  include("/root/hts/build/tests/stressng/cmake_install.cmake")
+  include("/root/hts/hts/build/tests/virtio/cmake_install.cmake")
+  include("/root/hts/hts/build/tests/performance/cmake_install.cmake")
+  include("/root/hts/hts/build/tests/stressng/cmake_install.cmake")
 
 endif()
 

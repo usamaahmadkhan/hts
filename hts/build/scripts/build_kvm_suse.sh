@@ -5,9 +5,9 @@
 #usage:
 # bash build_kvm.sh
 
-. /root/hts/build/scripts/bash_helpers.sh
-. /root/hts/build/scripts/log_helpers.sh
-. /root/hts/build/scripts/kvm-config
+. /root/hts/hts/build/scripts/bash_helpers.sh
+. /root/hts/hts/build/scripts/log_helpers.sh
+. /root/hts/hts/build/scripts/kvm-config
 
 tryexec sudo chown -R $USER:$USER /opt/*
 MAKE_JOBS=$(getconf _NPROCESSORS_ONLN)
@@ -18,11 +18,11 @@ log "Host architecture is $arch"
 log "Insatalling QEMU dependencies"
 tryexec sudo zypper install -y git
 tryexec sudo zypper install -y zlib-devel
-tryexec sudo zypper install -y libpixman-1-0-devel
-tryexec sudo zypper install -y libfdt-devel
-tryexec sudo zypper install -y libverto-glib-devel
-tryexec sudo zypper install -y libgmpxx4
-tryexec sudo zypper install -y libgnutlsxx-devel
+tryexec sudo zypper install -y libpixman-1-0
+tryexec sudo zypper install -y libfdt1
+tryexec sudo zypper install -y libvirt-glib-1_0-0
+tryexec sudo zypper install -y libgmp10 libgmm++-devel
+tryexec sudo zypper install -y libgnutls28
 
 #Installing/configuring QEMU
 log "Installing/configuring QEMU"
@@ -119,4 +119,4 @@ sysctl -w net.ipv4.ip_forward=1
 
 #Installing LTP on host
 log "Installing ltp on host"
-bash /root/hts/build/scripts/install_ltp.sh
+bash /root/hts/hts/build/scripts/install_ltp.sh

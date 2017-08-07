@@ -1,7 +1,7 @@
 #!/bin/bash
 #This script will configure dependencies required to use qemu-guest-agent.
 
-. /root/hts/build/scripts/bash_helpers.sh
+. /root/hts/hts/build/scripts/bash_helpers.sh
 
 tryexec mkdir -p /var/lib/libvirt/qemu/channel/target
 tryexec chown -R libvirt-qemu:kvm /var/lib/libvirt/qemu/channel

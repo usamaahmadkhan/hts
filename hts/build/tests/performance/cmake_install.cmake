@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/tests/performance
+# Install script for directory: /root/hts/hts/tests/performance
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

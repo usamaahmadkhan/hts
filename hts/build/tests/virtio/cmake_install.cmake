@@ -1,4 +1,4 @@
-# Install script for directory: /root/hts/tests/virtio
+# Install script for directory: /root/hts/hts/tests/virtio
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
