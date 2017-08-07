@@ -2,7 +2,6 @@
 #This script will build hts project
 
 sudo zypper install --no-confirm gcc gcc-c++ kernel-devel make
-wget https://cmake.org/files/v3.8/cmake-3.8.2.tar.gz
 sudo mkdir -p /opt/hts
 sudo mkdir -p /opt/hts/cmake-src
 pushd /opt/hts/cmake-src &> /dev/null

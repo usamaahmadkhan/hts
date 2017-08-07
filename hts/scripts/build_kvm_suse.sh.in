@@ -19,6 +19,7 @@ log "Adding necessary repos for packages"
 tryexec sudo zypper addrepo http://download.opensuse.org/repositories/Virtualization/SLE_12/ repo-virt
 tryexec sudo zypper addrepo http://download.opensuse.org/repositories/benchmark/SLE_12_SP2_Backports/ repo-backport
 tryexec sudo zypper addrepo http://download.opensuse.org/repositories/network/SLE_12_SP3/ repo-network
+tryexec sudo zypper addrepo http://download.opensuse.org/repositories/Base:/System/openSUSE_Factory_zSystems/ repo-base
 tryexec sudo zypper addrepo http://download.opensuse.org/repositories/network:/utilities/SLE_12_SP3/ repo-netutils
 tryexec sudo zypper addrepo http://download.opensuse.org/tumbleweed/repo/oss repo-tmblwd
 tryexec sudo zypper refresh
@@ -40,7 +41,7 @@ tryexec sudo zypper install -y virt-install virt-manager
 
 #Installing libvirt
 log "Installing libvirt"
-tryexec sudo zypper install-y libvirt
+tryexec sudo zypper install -y libvirt
 
 #Installing benchmarking tools in host machine
 log "installing benchmarking tools"
@@ -59,6 +60,7 @@ tryexec sudo cp iozone /usr/bin/
 tryexec popd &> /dev/null
 tryexec popd &> /dev/null
 tryexec sudo zypper install -y iperf
+tryexec sudo zypper install -y tunctl
 tryexec sudo zypper install -y sshpass
 tryexec sudo zypper install -y fio
 

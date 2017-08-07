@@ -605,7 +605,7 @@ def create_tap_on_host(tap_type='default', tap_ifname='tap0', bridge_name='br0',
     ip: host IP in case of host only tap interface
     """
     # Create tap interface
-    if "Ubuntu" in platform.platform():
+    if "Ubuntu" in platform.platform() or "SuSE" in platform.platform():
         cmd = "sudo tunctl -t %s" % tap_ifname
     elif "centos" in platform.platform():
         cmd = "sudo ip tuntap add %s mode tap" % tap_ifname
