@@ -14,6 +14,15 @@ MAKE_JOBS=$(getconf _NPROCESSORS_ONLN)
 arch=$(uname -m)
 log "Host architecture is $arch"
 
+#Adding necessary repos
+log "Adding necessary repos for packages"
+tryexec sudo zypper addrepo http://download.opensuse.org/repositories/Virtualization/SLE_12/ repo-virt
+tryexec sudo zypper addrepo http://download.opensuse.org/repositories/benchmark/SLE_12_SP2_Backports/ repo-backport
+tryexec sudo zypper addrepo http://download.opensuse.org/repositories/network/SLE_12_SP3/ repo-network
+tryexec sudo zypper addrepo http://download.opensuse.org/repositories/network:/utilities/SLE_12_SP3/ repo-netutils
+tryexec sudo zypper addrepo http://download.opensuse.org/tumbleweed/repo/oss repo-tmblwd
+tryexec sudo zypper refresh
+
 #Installing QEMU dependencies
 log "Insatalling QEMU dependencies"
 tryexec sudo zypper install -y git
@@ -24,36 +33,14 @@ tryexec sudo zypper install -y libvirt-glib-1_0-0
 tryexec sudo zypper install -y libgmp10 libgmm++-devel
 tryexec sudo zypper install -y libgnutls28
 
-#Installing/configuring QEMU
-log "Installing/configuring QEMU"
-tryexec mkdir -p $qemu_dir
-tryexec pushd $qemu_dir &> /dev/null
-if [[ -z "${QEMU_VERSION}" ]];then
-    qemu_ver=$qemu_version
-else
-    qemu_ver=${QEMU_VERSION}'.tar.xz'
-fi
-
-log "QEMU source is $qemu_url/$qemu_ver"
-tryexec wget  $qemu_url/$qemu_ver
-tryexec tar -xvf $qemu_ver &> /dev/null
-tryexec pushd qemu-* &> /dev/null
-if [ "$arch" == "aarch64" ];then
-    tryexec ./configure --target-list=aarch64-softmmu --enable-kvm  --enable-fdt --prefix=/usr
-else
-    tryexec ./configure --target-list=x86_64-softmmu --enable-kvm  --enable-fdt --prefix=/usr
-fi
-tryexec make -j$MAKE_JOBS
-tryexec sudo make install
-tryexec popd &> /dev/null
-tryexec popd &> /dev/null
+tryexec sudo zypper install -y qemu
 
 log "Installing virt-manager"
-tryexec sudo zypper install -y virt-manager
+tryexec sudo zypper install -y virt-install virt-manager
 
 #Installing libvirt
 log "Installing libvirt"
-tryexec sudo zypper install -y libvirt
+tryexec sudo zypper install-y libvirt
 
 #Installing benchmarking tools in host machine
 log "installing benchmarking tools"
@@ -67,12 +54,12 @@ if [ "$arch" == "aarch64" ];then
 else
     tryexec make linux-AMD64
 fi
+
 tryexec sudo cp iozone /usr/bin/
 tryexec popd &> /dev/null
 tryexec popd &> /dev/null
 tryexec sudo zypper install -y iperf
 tryexec sudo zypper install -y sshpass
-tryexec sudo zypper install -y uml-utilities
 tryexec sudo zypper install -y fio
 
 #Installing python modules
@@ -98,8 +85,8 @@ tryexec echo "/var/lib/libvirt/qemu/channel/target/* rw," >> /etc/apparmor.d/abs
 
 #Installing some helper packages for arm arch
 if [ "$arch" == "aarch64" ];then
-    tryexec sudo zypper install -y qemu-system-arm
-    tryexec sudo zypper install -y qemu-efi
+    tryexec sudo zypper install -y qemu-arm
+    tryexec sudo zypper install -y qemu-uefi-aarch64
 
 else
     sudo sed -i '/#user = "root"/c\user = "root"' /etc/libvirt/qemu.conf

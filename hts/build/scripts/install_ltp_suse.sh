@@ -10,10 +10,10 @@ tryexec export LC_ALL=C
 
 # PREREQS on Ubuntu (package-list is incomplete and may vary for other distros)
 log "Installing pre-requisite packages"
-tryexec sudo zypper install -y gcc gcc-c++ kernel-devel make cmake
+tryexec sudo zypper install -y gcc gcc-c++ kernel-devel make
 tryexec sudo zypper install -y autoconf automake m4
 tryexec sudo zypper install -y git
-tryexec sudo zypper install -y libaio-devel libattr1 libcap-devel
+tryexec sudo zypper install -y libaio-devel libattr1 libcap2
 
 # Working directory
 log "Creating LTP working directory"

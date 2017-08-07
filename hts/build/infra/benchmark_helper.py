@@ -554,7 +554,7 @@ def setup_req_LTPNetwork(ip, credentials):
 
     cmd = "echo "+ip+" "+credentials.get('username')+" >> /etc/hosts"
     helper.execute_cmd(cmd)
-    cmd = "yes y | ssh-keygen -f id_rsa -t rsa -N \'"+ip+"\'"
+    cmd = "yes y | ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N \'"+ip+"\'"
     helper.execute_cmd(cmd)
     cmd = "cat $HOME/.ssh/id_rsa.pub"
     output = helper.execute_cmd_output(cmd)

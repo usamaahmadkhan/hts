@@ -9,9 +9,9 @@ for i in rlogin rsh rexec;
 
 log "Installing necessary packages for LTP suite"
 sudo zypper install -y xinetd
-sudo zypper install -y rsh-server
+sudo zypper install -y rsh
 sudo zypper install -y telnet-server
-sudo zypper install -y finger-server
+sudo zypper install -y finger
 sudo zypper install -y rdist
 sudo zypper install -y rsync
 sudo zypper install -y vsftpd
